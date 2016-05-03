@@ -1,0 +1,25 @@
+{
+  "name": "kuregis",
+  "version": "1.0.0",
+  "description": "registration website redesign for hci class of 2015 (winter)",
+  "main": "index.js",
+  "scripts": {
+      "production": "webpack -p",
+      "start": "webpack-dev-server"
+  },
+  "author": "XMistralX",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^15.0.2",
+    "react-dom": "^15.0.2",
+    "react-router": "^2.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.8.0",
+    "babel-loader": "^6.2.4",
+    "babel-preset-react": "^6.5.0",
+    "html-webpack-plugin": "^2.16.1",
+    "webpack": "^1.13.0",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
