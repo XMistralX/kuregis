@@ -5,15 +5,21 @@ var styles = {
   space: {
     marginTop: '25px',
 },
-  header: {
-      fontSize: 45,
-      color: '#1F4B00',
+  topicText: {
+      fontSize: 20,
+      color: '#000',
       fontWeight: 100,
   },
   rowOffset: {
       marginTop: '0px',
       marginBottom: '0px'
+  },
+  buttonStyle: {
+      marginLeft:'auto',
+      marginRight:0,
+      display: 'block',
   }
+
 }
 
 module.exports = styles;

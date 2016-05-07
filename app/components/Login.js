@@ -27,7 +27,7 @@ function Login () {
                       type = "password"/>
               </div>
               </div>
-                <button type='button' className='btn btn-lg btn-success'>Login</button>
+                <button type='button' className='btn btn-sm btn-success'>Login</button>
         </div>
     </LoginContainer>
   )
