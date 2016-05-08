@@ -7,7 +7,6 @@ var Link = ReactRouter.Link
 
 function Login () {
   return (
-      <LoginContainer>
           <div>
               <h1 >KURegis</h1>
               <p className='lead'>Registration Redesign</p>
@@ -27,9 +26,10 @@ function Login () {
                       type = "password"/>
               </div>
               </div>
+              <Link to='/user'>
                 <button type='button' className='btn btn-sm btn-success'>Login</button>
+             </Link>
         </div>
-    </LoginContainer>
   )
 };
 

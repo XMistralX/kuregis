@@ -3,7 +3,7 @@ var React = require('react');
 function Course(props){
     return(
         <div className= 'col-md-10 col-md-offset-1'>
-            <div className = 'bs-callout bs-callout-primary'>
+            <div className = 'bs-callout bs-callout-primary bs-callout-lg'>
                 <h4>Selected Topics in Software and Knowledge Engineering</h4>
                 <br></br>
                 &nbsp;&nbsp;&nbsp;&nbsp; <strong>Course ID</strong>: 01219496
