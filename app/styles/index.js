@@ -20,6 +20,7 @@ var styles = {
       display: 'block',
   }
 
+
 }
 
 module.exports = styles;

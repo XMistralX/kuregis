@@ -1,6 +1,6 @@
 var React = require('react');
 var styles = require('../styles');
-
+var Login = require('../components/Login');
 
 var LoginContainer = React.createClass({
     render: function(){

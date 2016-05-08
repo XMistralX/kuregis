@@ -1,6 +1,5 @@
 var React = require('react');
 var ReactRouter = require('react-router');
-var LoginContainer = require('../containers/LoginContainer');
 var styles = require('../styles');
 var Link = ReactRouter.Link
 
