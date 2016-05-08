@@ -1,36 +1,31 @@
 var React = require('react');
 var Registration = require('../components/Registration');
+var helper = require('../utils/CourseHelper');
 
 var RegistrationContainer = React.createClass({
-    data:{
-
-    },
     getInitialState: function() {
         return{
             enrollquery : {},
-            regisCourse : {}
+            query: '',
+            regisCourse : {},
         }
     },
+    handleUpdateQuery: function(e){
+        this.setState({
+            query: e.target.value
+        })
+        console.log(helper.searchCourse('1'));
+    },
+    handleSubmitQuery: function(){
+
+    },
     render: function(){
-        var courseData = [];
-        // if(!(typeof enrollquery === 'undefined') ){
-        //     for(var i = 0 ; i < this.enrollquery.length ; i++){
-        //         courseData.push
-        //         ();
-        //
-        //     }
-        // }
-        //
-        if(!(typeof this.state.enrollquery === 'undefined') ){
-            var rows = [];
-            for (var i=0; i < this.state.enrollquery.length; i++) {
-                rows.push(<CourseItem item={this.state.enrollquery[i]} key={i} />);
-            }
-        }
-        console.log(this.state.enrollquery.length);
         return(
             <Registration
                 enrollquery = {this.state.enrollquery}
+                query = {this.state.query}
+                onUpdateQuery = {this.handleUpdateQuery}
+                onSubmitQuery = {this.handleSubmitQuery}
                 regisCourse = {this.state.regisCourse}/>
         );
     }

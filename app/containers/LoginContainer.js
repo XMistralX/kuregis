@@ -1,12 +1,12 @@
 var React = require('react');
 var styles = require('../styles');
 var Login = require('../components/Login');
-var helpers = require('../utils/CourseHelper');
+var helper = require('../utils/CourseHelper');
 
 var LoginContainer = React.createClass({
 
     render: function(){
-        helpers.searchCourse('9');
+        console.log(helper.searchCourse('012'));
         return(
             <div className = 'jumbotron col-sm-12 text-center' style ={styles.transparentBg}>
                 <Login />

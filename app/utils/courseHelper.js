@@ -3,7 +3,6 @@ var axios = require('axios');
 function getAllCourseData(){
     return axios.get('https://whsatku.github.io/skecourses/combined.json')
     .then(function (courseData) {
-      console.log(courseData.data);
       return courseData.data;
     });
 }
@@ -15,15 +14,15 @@ var CourseHelper = {
           return courseData.data;
         });
     },
-    searchCourse: function(query){
+    searchCourse: function(partialCourseNum){
         var queryCourse = {};
         var queryId = 1;
         for(var i = 0; this.db.length ; i++){
-            if(db[i].id.match(query)){
-                queryCourse[queryId] = db[i];
+            if(this.db[i].id.match(partialCourseNum)){
+                queryCourse[queryId] = this.db[i];
             }
         }
-        console.log(queryCourse);
+
         return queryCourse;
     }
 

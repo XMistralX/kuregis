@@ -1,6 +1,7 @@
 var React = require('react');
 var ReactRouter = require('react-router');
 var styles = require('../styles');
+var helper = require('../utils/CourseHelper');
 var Link = ReactRouter.Link
 
 

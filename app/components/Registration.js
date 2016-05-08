@@ -30,113 +30,75 @@ function Table(props){
         </table>
     )
 }
-function FormInput(){
+function InputField (props) {
+  return (
+    <input
+      className='form-control'
+      onChange={props.onUpdateQuery}
+      placeholder='Class'
+      type='text'
+      value={props.query} />
+  )
+}
+function Button (props) {
+  return (
+     <button type='button'
+     style = {styles.buttonStyle}
+     className='btn btn-md btn-success'
+     onClick={props.onSubmitQuery}>
+     {props.children}
+    </button>
+  )
+}
+
+function Registration (props) {
+    if(!(typeof props.enrollquery === 'undefined') ){
+        var rows = [];
+        for (var i=0; i < props.enrollquery.length; i++) {
+            rows.push(<CourseItem item={props.enrollquery[i]} key={i} />);
+        }
+    }
     return(
-        <input
-          className='form-control'
-          placeholder='Class'
-          type='text'
-           />
+        <div>
+        <div className = 'row'>
+            <div className = 'col-md-6 col-md-offset-1'>
+                <div className = 'bs-callout bs-callout-primary'>
+                <h3>Registration</h3>
+                <InputField
+                onUpdateQuery={props.onUpdateQuery}
+                query={props.query} />
+            <Button
+                onSubmitQuery={props.onSubmitQuery}>
+                Search
+            </Button>
+
+                </div>
+            </div>
+            <div className= 'col-md-4  '>
+                <div className = 'bs-callout bs-callout-primary'>
+                    <h4>Enrolled Course</h4>
+
+                </div>
+            </div>
+
+        </div>
+        <div className = 'row'>
+            <div className = 'col-md-6 col-md-offset-1'>
+                <div className = 'bs-callout bs-callout-primary'>
+                <h3>Result</h3>
+                    <Table />
+
+                </div>
+            </div>
+        </div>
+        </div>
     )
 }
-// function Registration (props) {
-//     //var rows = [];
-//     //for (var i=0; i < props.enrollquery.length; i++) {
-//     //    rows.push(<CourseItem item={props.enrollquery[i]} key={i}>);
-//     //}
-//     return(
-//         <div>
-//         <div className = 'row'>
-//             <div className = 'col-md-6 col-md-offset-1'>
-//                 <div className = 'bs-callout bs-callout-primary'>
-//                 <h3>Registration</h3>
-//
-//                 <>
-//                <button type='button' className='btn btn-md btn-success' style = {styles.buttonStyle} >Search</button>
-//
-//                 </div>
-//             </div>
-//             <div className= 'col-md-4  '>
-//                 <div className = 'bs-callout bs-callout-primary'>
-//                     <h4>Enrolled Course</h4>
-//
-//                 </div>
-//             </div>
-//
-//         </div>
-//         <div className = 'row'>
-//             <div className = 'col-md-6 col-md-offset-1'>
-//                 <div className = 'bs-callout bs-callout-primary'>
-//                 <h3>Result</h3>
-//                     <Table />
-//
-//                 </div>
-//             </div>
-//         </div>
-//         </div>
-//     )
-// }
-var Registration = React.createClass({
-
-     render: function(){
-         if(!(typeof this.props.enrollquery === 'undefined') ){
-             var rows = [];
-             for (var i=0; i < this.props.enrollquery.length; i++) {
-                 rows.push(<CourseItem item={this.props.enrollquery[i]} key={i} />);
-             }
-         }
-         return (
-             <div>
-             <div className = 'row'>
-                 <div className = 'col-md-6 col-md-offset-1'>
-                     <div className = 'bs-callout bs-callout-primary'>
-                     <h3>Registration</h3>
-                     <input
-                       className='form-control'
-                       placeholder='Class'
-                       type='text'
-                        />
-
-                    <button type='button' className='btn btn-md btn-success' style = {styles.buttonStyle} >Search</button>
-
-                     </div>
-                 </div>
-                 <div className= 'col-md-4  '>
-                     <div className = 'bs-callout bs-callout-primary'>
-                         <h4>Enrolled Course</h4>
-
-                     </div>
-                 </div>
-
-             </div>
-             <div className = 'row'>
-                 <div className = 'col-md-6 col-md-offset-1'>
-                     <div className = 'bs-callout bs-callout-primary'>
-                     <h3>Result</h3>
-                         <table className = 'table'>
-                             <thead>
-                                 <tr>
-                                     <th>#</th>
-                                     <th>Course ID</th>
-                                     <th>Name</th>
-                                     <th>Lab Credit</th>
-                                     <th>Lecture Credit</th>
-                                     <th>Self Credit</th>
-                                 </tr>
-                             </thead>
-                             <tbody>
-
-                             </tbody>
-                         </table>
-                     </div>
-                 </div>
-             </div>
-             </div>
-         )
-     }
- })
 Registration.propTypes = {
     enrollquery: React.PropTypes.object,
+    query: React.PropTypes.string,
+    onUpdateQuery: React.PropTypes.func,
+    onSubmitQuery: React.PropTypes.func,
     regisCourse: React.PropTypes.object,
 }
 
