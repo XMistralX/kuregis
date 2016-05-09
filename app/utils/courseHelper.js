@@ -26,7 +26,7 @@ var CourseHelper = {
              for(var i = 0; i < keys.length; i++)
              {
                  var key = keys[i];
-                 console.log(allCourse[key].id);
+                 
                  if(allCourse[key].id.match(query)){
                      queryCourse[queryId] = allCourse[key];
                      queryId++;

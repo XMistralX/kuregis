@@ -4,19 +4,19 @@ var Proptypes = React.Proptypes;
 function CourseItem(props){
     return(
         <tr>
-            <th>{key + 1}</th>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td>{item.credit.lab}</td>
-            <td>{item.credit.lecture}</td>
-            <td>{item.credit.self}</td>
+            <th></th>
+            <td>{props.item.id}</td>
+            <td>{props.item.name.en}</td>
+            <td>{props.item.credit.lab}</td>
+            <td>{props.item.credit.lecture}</td>
+            <td>{props.item.credit.self}</td>
         </tr>
     )
 }
 
 CourseItem.propTypes = {
     item: React.PropTypes.object,
-    key: React.PropTypes.number,
+
 }
 
 module.exports = CourseItem;

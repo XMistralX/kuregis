@@ -53,10 +53,15 @@ function Button (props) {
 
 function Registration (props) {
     if(!(typeof props.enrollquery === 'undefined') ){
+        var cache = props.enrollquery;
+        console.log(cache);
+        var keys = Object.keys(cache);
         var rows = [];
-        for (var i=0; i < props.enrollquery.length; i++) {
-            rows.push(<CourseItem item={props.enrollquery[i]} key={i} />);
+        for (var i = 0; i < keys.length; i++) {
+            var id = keys[i];
+            rows.push(<CourseItem item={cache[id]} key = {cache[id].id}  />);
         }
+
     }
     return(
         <div>
@@ -86,7 +91,9 @@ function Registration (props) {
             <div className = 'col-md-6 col-md-offset-1'>
                 <div className = 'bs-callout bs-callout-primary'>
                 <h3>Result</h3>
-                    <Table />
+                    <Table>
+                        {rows}
+                    </Table>
 
                 </div>
             </div>

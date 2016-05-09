@@ -14,9 +14,14 @@ var RegistrationContainer = React.createClass({
         this.setState({
             query: e.target.value
         })
-        console.log(helper.searchCourse('1'));
     },
     handleSubmitQuery: function(){
+        helper.searchCourse(this.state.query)
+        .then(function(data){
+            this.setState({
+                enrollquery: data
+            })
+        }.bind(this));
 
     },
     render: function(){
