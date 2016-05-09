@@ -7,7 +7,12 @@ function getAllCourseData(){
     });
 }
 var CourseHelper = {
-    db : {},
+    getSectionData: function(courseNum){
+        return axios.get('https://whsatku.github.io/skecourses/sections/'+courseNum+'.json')
+        .then(function (sectionData) {
+          return sectionData.data;
+        });
+    },
     getCourseData: function(courseNum){
         return axios.get('https://whsatku.github.io/skecourses/'+courseNum+'.json')
         .then(function (courseData) {
@@ -26,13 +31,13 @@ var CourseHelper = {
              for(var i = 0; i < keys.length; i++)
              {
                  var key = keys[i];
-                 
+
                  if(allCourse[key].id.match(query)){
                      queryCourse[queryId] = allCourse[key];
                      queryId++;
                  }
              }
-
+             console.log(queryCourse);
             return queryCourse;
         })
 

@@ -19,9 +19,9 @@ function Table(props){
                     <th>#</th>
                     <th>Course ID</th>
                     <th>Name</th>
-                    <th>Lab Credit</th>
-                    <th>Lecture Credit</th>
-                    <th>Self Credit</th>
+                    <th>Credit(Lab/Lec/Self)</th>
+                    <th>Total Credit</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -59,10 +59,11 @@ function Registration (props) {
         var rows = [];
         for (var i = 0; i < keys.length; i++) {
             var id = keys[i];
-            rows.push(<CourseItem item={cache[id]} key = {cache[id].id}  />);
+            rows.push(<CourseItem item={cache[id]} key = {cache[id].id} numElement = {i+1}  />);
         }
 
     }
+    if()
     return(
         <div>
         <div className = 'row'>
@@ -81,7 +82,7 @@ function Registration (props) {
             </div>
             <div className= 'col-md-4  '>
                 <div className = 'bs-callout bs-callout-primary'>
-                    <h4>Enrolled Course</h4>
+                    <h4>Registered Course</h4>
 
                 </div>
             </div>
@@ -102,6 +103,7 @@ function Registration (props) {
     )
 }
 Registration.propTypes = {
+    display: React.propTypes.string,
     enrollquery: React.PropTypes.object,
     query: React.PropTypes.string,
     onUpdateQuery: React.PropTypes.func,
