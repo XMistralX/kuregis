@@ -15,6 +15,8 @@ var RegistrationContainer = React.createClass({
             query: '',
             course: '',
             regisCourse : [],
+            credit: 0,
+            show: false,
         }
     },
     handleSubmitCourse: function(courseNum){
@@ -37,15 +39,37 @@ var RegistrationContainer = React.createClass({
 
     },
     handleEnrollCourse: function(courseData){
-        this.setState({
-            regisCourse: this.state.regisCourse.concat([courseData])
-        })
+        if(this.state.credit + courseData.credit <= 23 ){
+            var cacheCredit = this.state.credit;
+            var valid = true;
+            cacheCredit += courseData.credit;
+            for(var i = 0 ; i < this.state.regisCourse.length ; i++){
+                if(courseData.name == this.state.regisCourse[i].name && courseData.section == this.state.regisCourse[i].section){
+                    valid = false;
+                }
+            }
+            if(valid){
+                this.setState({
+                    regisCourse: this.state.regisCourse.concat([courseData]),
+                    credit: cacheCredit
+                })
+            }
+        }
     },
     handleDropCourse: function(index){
         var cacheRegis = this.state.regisCourse.slice();
         cacheRegis.splice(index, 1);
         this.setState({regisCourse: cacheRegis});
-        
+
+    },
+    handleExportJSON: function(){
+
+        if(this.state.show){
+            this.setState({show: false});
+        }
+        else{
+            this.setState({show: true});
+        }
     },
     render: function(){
         return(
@@ -60,7 +84,10 @@ var RegistrationContainer = React.createClass({
 
                 {React.cloneElement(<RegisterPanel />, {
                     regisCourse :this.state.regisCourse,
-                    onDropCourse : this.handleDropCourse}
+                    onDropCourse : this.handleDropCourse,
+                    credit: this.state.credit,
+                    onExportJSON: this.handleExportJSON,
+                    show: this.state.show}
                     )}
             </div>
 
