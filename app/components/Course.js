@@ -1,4 +1,6 @@
 var React = require('react');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 
 function Button (props) {
@@ -89,6 +91,7 @@ function Course(props){
     if(props.sectionData[0] != null){
         return(
             <div className = 'col-md-6 col-md-offset-1'>
+                <Link to = 'regis'><h3>Register</h3></Link>
                 <div className = 'bs-callout bs-callout-primary '>
                     <h4>{props.courseData.name.en}</h4>
                     <br></br>
