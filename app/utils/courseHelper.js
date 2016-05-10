@@ -37,11 +37,14 @@ var CourseHelper = {
                      queryId++;
                  }
              }
-             console.log(queryCourse);
-            return queryCourse;
-        })
 
-    }
+            return queryCourse;
+
+        })
+    },
+    searchOpenCourse: function(courseNum){
+        return get
+    },
 
 };
 module.exports = CourseHelper;
