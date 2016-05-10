@@ -39,7 +39,7 @@ var CourseContainer = React.createClass({
     },
     render: function(){
         if(this.state.courseData && this.state.sectionData){
-        
+
             return(
 
                 <Course
@@ -48,7 +48,22 @@ var CourseContainer = React.createClass({
                     onEnrollCourse = {this.props.onEnrollCourse}/>
             )
         }
-         return <div>Loading...</div>;
+         return (
+             <div className = 'col-md-6 col-md-offset-1'>
+                 <div className = 'bs-callout bs-callout-primary '>
+                     <h4></h4>
+                     <br></br>
+                     <strong>Course ID</strong>:
+                     <br></br>
+                     <strong>Credit(Lab/Lec/Self)</strong> :
+                     <br></br>
+                     <strong>Description</strong> :
+                    
+                     <br></br>
+
+                 </div>
+             </div>
+         );
     }
 })
 
